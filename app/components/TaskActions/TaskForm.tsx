@@ -26,7 +26,7 @@ export default function TaskForm() {
 
       if (res.ok) {
         setTitle('');
-        router.refresh(); // Refresca los datos del servidor
+        router.refresh(); 
       }
     } catch (error) {
       console.error('Error al crear la tarea:', error);
