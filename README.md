@@ -6,6 +6,10 @@ Una aplicación de gestión de tareas moderna construida con Next.js 14.
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind-3-38bdf8?style=for-the-badge&logo=tailwind-css)
 
+## Capturas de pantalla
+
+![Pantalla principal de la app](screenshots/HomeView.png)
+![Pantalla para ver las tareas](screenshots/TaskView.png)
 ## Descripción del Proyecto
 
 Este proyecto es una aplicación fullstack de gestión de tareas (ToDo App) que permite crear, leer, actualizar y eliminar tareas. Fue desarrollado como práctica para aprender sobre Next.js 14, incluyendo Server Components, Client Components y API Routes.
