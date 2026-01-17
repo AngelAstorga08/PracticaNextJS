@@ -38,7 +38,7 @@ export async function GET() {
     const { id } = await request.json();  
     const index = tasks.findIndex((task: Task) => task.id === id);
     if (index !== -1) {
-      tasks = tasks.splice(index, 1);
+      tasks.splice(index, 1);  // ✅ Corregido: sin asignar
       return Response.json({ message: 'Task deleted' });
     }
     return Response.json({ error: 'Task not found' }, { status: 404 });

@@ -6,6 +6,7 @@ export default function TaskDelete({ id }: { id: string }) {
   const router = useRouter();
   
   const handleDelete = async (id: string) => {
+    console.log('Eliminando tarea:', id);
     try {
       const res = await fetch(`/api/tasks?id=${id}`, {
         method: 'DELETE',

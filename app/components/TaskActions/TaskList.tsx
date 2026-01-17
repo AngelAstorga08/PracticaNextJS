@@ -6,12 +6,26 @@ import { useState } from "react";
 export default function TaskList({ tasks }: { tasks: Task[] }) {
 
   const [filter, setFilter] = useState<boolean | null>(null);
-  const filteredTasks = filter === null 
-    ? tasks  
-    : tasks.filter((task: Task) => task.completed === filter);
+  const [searchTitle, setSearchTitle] = useState('');
+  
+  const filteredTasks = tasks
+    .filter((task: Task) => {
+      // Filtrar por estado (completada/pendiente/todas)
+      if (filter !== null && task.completed !== filter) {
+        return false;
+      }
+      // Filtrar por búsqueda de título
+      if (searchTitle && !task.title.toLowerCase().includes(searchTitle.toLowerCase())) {
+        return false;
+      }
+      return true;
+    });
 
   const handleFilter = (status: boolean | null) => {
     setFilter(status);
+  }
+  const handleSearch = (searchTitle: string) => {
+    setSearchTitle(searchTitle);
   }
 
   return (
@@ -19,7 +33,7 @@ export default function TaskList({ tasks }: { tasks: Task[] }) {
       <div className="border-2 border-zinc-700 rounded-3xl p-8 md:p-12 shadow-2xl bg-zinc-900">
 
         <div className="space-y-4 mt-8">
-          <TaskFilter ChangeFilter={handleFilter} filterSelected={filter} />
+          <TaskFilter onFilterChange={handleFilter} currentFilter={filter} onSearch={handleSearch} />
         </div>
         <div className="space-y-4 mt-8">
           {filteredTasks.length === 0 ? (
