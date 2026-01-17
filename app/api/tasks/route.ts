@@ -1,4 +1,10 @@
-let tasks = [
+export interface Task {
+  id: string;
+  title: string;
+  completed: boolean;
+}
+
+let tasks: Task[] = [
   { id: crypto.randomUUID(), title: 'Aprender Next.js', completed: false },
   { id: crypto.randomUUID(), title: 'Crear API Routes', completed: false }
 ];
@@ -9,7 +15,7 @@ export async function GET() {
 
   export async function POST(request: Request) {
     const { title } = await request.json();
-    const task = { id: crypto.randomUUID(), title, completed: false };
+    const task: Task = { id: crypto.randomUUID(), title, completed: false };
     tasks.push(task);
     if (task) {
       return Response.json(task);
@@ -19,8 +25,8 @@ export async function GET() {
 
   export async function PUT(request: Request) {
     const { id, title, completed } = await request.json();  
-    const task = tasks.find((task: any) => task.id === id); 
-    if (task) {
+    const task: Task | undefined = tasks.find((task: Task) => task.id === id); 
+    if (task !== undefined) {
       task.title = title;
       task.completed = completed;
       return Response.json(task);
@@ -30,7 +36,7 @@ export async function GET() {
 
   export async function DELETE(request: Request) {
     const { id } = await request.json();  
-    const index = tasks.findIndex((task: any) => task.id === id);
+    const index = tasks.findIndex((task: Task) => task.id === id);
     if (index !== -1) {
       tasks = tasks.splice(index, 1);
       return Response.json({ message: 'Task deleted' });

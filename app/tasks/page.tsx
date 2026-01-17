@@ -1,13 +1,14 @@
 
-import TaskDelete from '../components/TaskActions/TaskDelete';
 import TaskForm from '../components/TaskActions/TaskForm';
 import TaskItem from '../components/TaskActions/TaskItem';
+import TaskFilter from '../components/TaskActions/TaskFilter';
+import { Task } from "@/app/api/tasks/route";
+import TaskList from '../components/TaskActions/TaskList';
 
 export default async function TasksPage() {
   const baseUrl = process.env.BASE_URL;
   const res = await fetch(`${baseUrl}/api/tasks`);
-  const tasks = await res.json();
-  let taskId;
+  const tasks: Task[] = await res.json();
 
   return (
     <div className="flex items-center justify-center py-12 px-4">
@@ -20,18 +21,8 @@ export default async function TasksPage() {
             Organiza tu día de manera eficiente
           </p>
 
-          <div className="space-y-4 mt-8">
-            {tasks.length === 0 ? (
-              <div className="text-center py-12">
-                <p className="text-xl text-gray-400">No hay tareas todavía</p>
-                <p className="text-sm text-gray-500 mt-2">Crea tu primera tarea para comenzar</p>
-              </div>
-            ) : (
-              tasks.map((task: any) => (
-                <TaskItem key={task.id} task={task} />
-              ))
-            )}
-          </div>
+          <TaskList tasks={tasks} />
+
 
           <div className="mt-8 flex justify-center">
             <TaskForm />
