@@ -93,7 +93,6 @@ practica-nextjs/
 │   ├── layout.tsx                # Layout principal
 │   ├── page.tsx                  # Página de inicio
 │   └── globals.css               # Estilos globales
-├── .env.local                    # Variables de entorno
 └── package.json
 ```
 
