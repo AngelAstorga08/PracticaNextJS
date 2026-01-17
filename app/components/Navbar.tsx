@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav className="bg-zinc-900 shadow-lg border-b-2 border-zinc-700">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-900/90 backdrop-blur shadow-lg border-b-2 border-zinc-700">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-slate-400 via-gray-100 to-slate-400 bg-clip-text text-transparent hover:from-slate-300 hover:via-white hover:to-slate-300 transition-all drop-shadow-[0_0_3px_rgba(255,255,255,0.2)]">
