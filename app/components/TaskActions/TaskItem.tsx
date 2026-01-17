@@ -45,7 +45,7 @@ export default function TaskItem({ task }: { task: Task }) {
 
     return (
         <div
-            className="border-2 border-zinc-700 rounded-xl p-5 bg-zinc-800 hover:bg-zinc-750 hover:border-zinc-600 transition-all duration-300 hover:shadow-[0_0_15px_rgba(148,163,184,0.2)]"
+            className="border-2 border-zinc-700 rounded-xl p-5 bg-zinc-800 hover:bg-zinc-750 hover:border-zinc-600 transition-all duration-300 hover:shadow-[0_0_15px_rgba(148,163,184,0.2)] max-w-md mx-auto"
         >
             <div className="flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4 flex-1">
